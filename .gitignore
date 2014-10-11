@@ -3,3 +3,6 @@ db/*.sqlite3
 log/*.log
 tmp/
 .sass-cache/
+*.lock
+.ruby-gemset
+.ruby-version
