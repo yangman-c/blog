@@ -6,3 +6,5 @@ tmp/
 *.lock
 .ruby-gemset
 .ruby-version
+db/schema.rb
+test/*
