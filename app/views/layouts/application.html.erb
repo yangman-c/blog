@@ -6,127 +6,12 @@
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "my97/WdatePicker.js"%>
   <%= csrf_meta_tags %>
-  <style>
-
-      #new_leave_form table, #new_leave_form th, #new_leave_form td{
-          border: 1px solid #0b66a8;
-          border-collapse: collapse;
-          padding:5px;
-      }
-
-      #new_leave_form, #submit{
-          width: 100%;
-      }
-
-      #new_leave_form .tr_title{
-          width: 15%;
-          text-align: left;
-      }
-
-      #new_leave_form .inputtext{
-          width: 70px%;
-      }
-  </style>
-
-  <script >
-
-      // 刷新页面时时间差也还在
-      window.onload = function() {
-          time_diffrence();
-      };
-
-      // 计算时间差
-      function time_diffrence(){
-          var d1 = Date.parse($("#att_leave_leave_start_on").val());
-          var d2 = Date.parse($("#att_leave_leave_end_on").val());
-          var time_diff = (d2 - d1)/(1000*60*60*24);
-          // $('#time_diff').empty();
-          // $('#time_diff').append(time_diff);
-          $('#time_diff').text(time_diff);
-      }
-  </script>
-
 
 </head>
 <body>
 <%= flash[:notice] %><br/>
 <%= yield %>
 
-<% dateFmt = "WdatePicker({readOnly:true,dateFmt:'yyyy/MM/dd'})" %>
-<div id="tm_search">
-  <div class="product_feature_nav"><h2><strong> 新建请假单 </strong></h2></div>
-</div>
-
-<%= form_tag('new', {:multipart => true}) do %>
-    <div id="p2_3">
-      <div class="tm2_3_2_new producttitlelink">
-        <table id="new_leave_form">
-          <tbody>
-          <tr>
-            <th class="tr_title">申请处室</th>
-            <td></td>
-            <th class="tr_title">申请日期</th>
-            <td colspan="3"><%= Time.now.strftime("%Y-%m-%d") %></td>
-          </tr>
-          <tr>
-            <th class="tr_title">姓名</th>
-            <td><%= text_field :att_leave, :user_name, :maxlength => 10, :class => "inputtext" %></td>
-            <th class="tr_title">职务</th>
-            <td><%= text_field :att_leave, :user_duty, :maxlength => 10, :class => "inputtext" %></td>
-            <th class="tr_title">操作人</th>
-            <td><%= text_field :att_leave, :operate_user, :maxlength => 10, :class => "inputtext"%></td>
-          </tr>
-          <tr>
-            <th class="tr_title">请假类别</th>
-            <td colspan="5">
-              <%= select_tag "att_leave[leave_type]", "<option>--请选择--</option><option>病假</option><option>事假</option><option>年休假</option><option>出差</option>" %>
-            </td>
-          </tr>
-          <tr>
-            <th class="tr_title">请假时间</th>
-            <td colspan="5">
-              &nbsp;
-              由<%= text_field :att_leave, :leave_start_on, :validate=>"required:true", :onchange=>"time_diffrence()" ,:style => "width:130px", :onfocus=>dateFmt %>
-              至&nbsp;<%= text_field :att_leave, :leave_end_on,  :validate=>"required:true", :onchange=>"time_diffrence()" ,:style => "width:130px", :onfocus=>dateFmt %>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;共计<span id="time_diff"></span>天
-            </td>
-          </tr>
-          <tr>
-            <th class="tr_title">请假事由</th>
-            <td colspan="5"><%= text_field :att_leave, :leave_reason %></td>
-          </tr>
-          <tr>
-            <th class="tr_title">直属领导意见</th>
-            <td colspan="5">
-
-            </td>
-          </tr>
-          <tr>
-            <th class="tr_title">上级领导意见</th>
-            <td colspan="5"></td>
-          </tr>
-          <tr>
-            <th class="tr_title">销假时间</th>
-            <td colspan="5"></td>
-          </tr>
-          <tr>
-            <th class="tr_title">备注</th>
-            <td colspan="5"></td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-<% end -%>
-<table id="submit">
-  <tbody>
-  <tr>
-    <td width="57%" align="right">
-      <input type="button" name="saveLeave" value="提交请假申请" class="buttonsave" onClick="">
-    </td>
-  </tr>
-  </tbody>
-</table>
 
 
 </body>

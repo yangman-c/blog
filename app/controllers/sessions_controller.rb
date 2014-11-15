@@ -37,6 +37,14 @@ class SessionsController < ApplicationController
   # POST /sessions.json
   def create
     debugger
+    # respond_to do |format|
+    #   format.html # new.html.erb
+    #   format.json { render json: @session }
+    # end
+    user = User.from_auth(request.env["omniauth.auth"])
+    session[:user_id] = user.id
+    flash[:notice] = "Welcome #{user.nickname}"
+    redirect_to posts_path
   end
 
   # PUT /sessions/1

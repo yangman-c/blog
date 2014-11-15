@@ -21,9 +21,13 @@ gem 'jquery-rails'
 
 gem 'omniauth'
 gem 'omniauth-github'
-gem 'omniauth-twitter'
+
+gem 'omniauth-identity'
+gem 'bcrypt-ruby', '~> 3.0.0'
+# gem 'omniauth-twitter'
+
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -37,4 +41,8 @@ gem 'ruby-debug19', :require => 'ruby-debug'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+end
+
+group :development do
+	gem 'pry-rails'	
 end
