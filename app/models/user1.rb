@@ -32,5 +32,4 @@ class User1 < ActiveRecord::Base
     self.password_salt = self.object_id.to_s + rand.to_s
     self.password_hash = Digest::SHA2.hexdigest(password + password_salt)
   end
-
 end
