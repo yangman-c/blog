@@ -1,4 +1,4 @@
-<%= form_for @post, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @post, :html => {:class => 'form-horizontal'} do |f| %>
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
@@ -6,18 +6,18 @@
     </div>
   </div>
   <!--<div class="control-group">-->
-    <!--<%#= f.label :content, :class => 'control-label' %>-->
-    <!--<div class="controls">-->
-      <!--<%#= f.text_area :content, :class => "field span5" %>-->
-      <!--&lt;!&ndash; <textarea name="post[content]" id="post_content" cols="10" rows="5"></textarea> &ndash;&gt;-->
-    <!--</div>-->
+  <!--<%#= f.label :content, :class => 'control-label' %>-->
+  <!--<div class="controls">-->
+  <!--<%#= f.text_area :content, :class => "field span5" %>-->
+  <!--&lt;!&ndash; <textarea name="post[content]" id="post_content" cols="10" rows="5"></textarea> &ndash;&gt;-->
+  <!--</div>-->
   <!--</div>-->
   <div class="control-group">
     <%= f.label :start_on, :class => 'control-label' %>
     <div class="controls">
-      <%#= f.text_field :start_on, :class => "datepicker" %> 
+      <%#= f.text_field :start_on, :class => "datepicker" %>
 
-      <input type="text" name="post[start_on]" id="post_start_on" data-provide='datepicker' class = 'text_field span5'>  
+      <input type="text" name="post[start_on]" id="post_start_on" data-provide='datepicker' class='text_field span5'>
     </div>
   </div>
   <div class="control-group">
@@ -37,7 +37,7 @@
     <%= f.label :tags, :class => 'control-label' %>
     <div class="controls" id="add_tag">
       <%
-        post_tag = @post.new_record? ? [] : @post.tags.map{|e| [e.name, e.id]}
+         post_tag = @post.new_record? ? [] : @post.tags.map { |e| [e.name, e.id] }
       %>
       <div class="will_choose" id="will_choose">
         <%= select_tag "post[tags][]", options_from_collection_for_select(@tags, 'id', 'name'), :multiple => true, :id => 'will_choose' %>
