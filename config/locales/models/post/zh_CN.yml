@@ -1,0 +1,13 @@
+zh-CN:
+  activerecord:
+      models:
+          post: "评论系统"
+      attributes:
+          post:
+              id: "编号"
+              title: "标题"
+              content: "正文"
+              start_on: "开始时间"
+              time_zone: "时区"
+              created_at: "创建日期"
+              tags: "标签"

@@ -10,8 +10,9 @@ Blog::Application.configure do
   config.whiny_nils = true
 
   # Show full error reports and disable caching
-  config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = false
+  # config.consider_all_requests_local       = true
+  # config.action_controller.perform_caching = false
+  # BetterErrors::Middleware.allow_ip! ENV['TRUSTED_IP'] if ENV['TRUSTED_IP']
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
@@ -27,4 +28,6 @@ Blog::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+
 end

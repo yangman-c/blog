@@ -1,9 +1,10 @@
+# encoding: utf-8
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
-
+    @date = params[:month] ? Date.parse(params[:month]) : Date.today
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
@@ -25,7 +26,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
-
+    @tags = Tag.all
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }
@@ -40,6 +41,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    debugger
     @post = Post.new(params[:post])
 
     respond_to do |format|

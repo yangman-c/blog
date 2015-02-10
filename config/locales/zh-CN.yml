@@ -1,0 +1,13 @@
+zh-CN:
+  time:
+    formats:
+      default: "%Y年%m月%d日 %H:%M:%S"
+      short: "%b%d日 %H:%M"
+      long: "%Y-%m-%d %H:%M"
+      full: "%Y-%m-%d %H:%M:%S"
+      date: "%Y-%m-%d"
+      middle: "%m-%d %H:%M"
+      deal_date: "%Y年%b%d日"
+      deal_time: "%H点%M分"
+    am: "上午"
+    pm: "下午"

@@ -7,5 +7,12 @@ class CreateUser1s < ActiveRecord::Migration
 
       t.timestamps
     end
+	  create_table "users", :force => true do |t|
+	    t.string   "nickname"
+	    t.string   "email"
+			t.timestamps
+	  end
   end
+
+
 end

@@ -22,7 +22,9 @@ class SessionsController < ApplicationController
   # GET /sessions/new
   # GET /sessions/new.json
   def new
-
+    debugger
+    flash[:failure_provider] = request.env['omniauth.error.strategy'].name
+    flash[:failre_type] = request.env['omniauth.error.type']
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @session }
@@ -36,7 +38,7 @@ class SessionsController < ApplicationController
   # POST /sessions
   # POST /sessions.json
   def create
-    debugger
+    # debugger
     # respond_to do |format|
     #   format.html # new.html.erb
     #   format.json { render json: @session }

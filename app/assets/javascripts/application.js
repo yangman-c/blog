@@ -6,4 +6,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require_tree .
+//= require bootstrap-datepicker
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});
+
+$("#add_all").click(function() {
+	$( ".result" ).load( "ajax/test.html" );
+});
+// 	addAllToThisPost
+// addOneToThisPost
+// deleteOneToThisPost
+// deleteAllToThisPost
+

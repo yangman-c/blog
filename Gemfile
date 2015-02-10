@@ -1,21 +1,25 @@
-# source 'http://rubygems.org'
-source 'https://ruby.taobao.org'
+source 'http://rubygems.org'
+# source 'https://ruby.taobao.org'
 
-gem 'rails', '3.1.1'
-
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+gem 'rails', '3.2.21'
 
 gem 'mysql2'
 
+# use to internlization
+# gem 'rails-i18n'
 
 # Gems used only for assets and not required
 # in production environments by default.
-# group :assets do
-#   gem 'sass-rails',   '~> 3.1.4'
-#   gem 'coffee-rails', '~> 3.1.1'
-#   gem 'uglifier', '>= 1.0.3'
-# end
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+  gem "therubyracer"
+  gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+  gem "twitter-bootstrap-rails"
+  gem 'less-rails-bootstrap'
+  gem 'bootstrap-datepicker-rails'
+end
 
 gem 'jquery-rails'
 
@@ -23,7 +27,6 @@ gem 'omniauth'
 gem 'omniauth-github'
 
 gem 'omniauth-identity'
-gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'omniauth-twitter'
 
 # To use ActiveModel has_secure_password
@@ -36,7 +39,9 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'capistrano'
 
 # To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
+gem "debugger"
+# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'rack-cleancookies'
 
 group :test do
   # Pretty printed test output
@@ -44,5 +49,11 @@ group :test do
 end
 
 group :development do
-	gem 'pry-rails'	
+	gem 'pry-rails'
+  gem 'pry-doc'
+  gem "better_errors", "~> 1.0", :require=>false
+  gem "binding_of_caller"
 end
+
+# get calendar table
+gem "watu_table_builder", :require => "table_builder"

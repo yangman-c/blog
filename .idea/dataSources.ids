@@ -9,4 +9,7 @@
   <data-source source="LOCAL" name="Rails blog: production" uuid="5564f2fe-d7d9-4784-8da8-f55078049a61">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails zycg: development" uuid="03d0c7c1-607b-49e5-a41c-b4f392570693">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

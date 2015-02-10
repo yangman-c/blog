@@ -9,3 +9,5 @@ tmp/
 db/schema.rb
 test/*
 config/database.yml
+bower_components/*
+assets/*

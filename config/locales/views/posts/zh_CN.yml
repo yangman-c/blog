@@ -1,0 +1,12 @@
+zh-CN:
+  posts:
+    index:
+      title: "标题"
+      id: "编号"
+      content: "正文"
+      edit: "编辑"
+      destroy: "删除"
+      date: "日期"
+      operate: "操作"
+      created_at: "创建日期"
+      actions: "操作"

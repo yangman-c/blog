@@ -1,29 +1,71 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @post, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field span5' %>
     </div>
-  <% end %>
+  </div>
+  <!--<div class="control-group">-->
+    <!--<%#= f.label :content, :class => 'control-label' %>-->
+    <!--<div class="controls">-->
+      <!--<%#= f.text_area :content, :class => "field span5" %>-->
+      <!--&lt;!&ndash; <textarea name="post[content]" id="post_content" cols="10" rows="5"></textarea> &ndash;&gt;-->
+    <!--</div>-->
+  <!--</div>-->
+  <div class="control-group">
+    <%= f.label :start_on, :class => 'control-label' %>
+    <div class="controls">
+      <%#= f.text_field :start_on, :class => "datepicker" %> 
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+      <input type="text" name="post[start_on]" id="post_start_on" data-provide='datepicker' class = 'text_field span5'>  
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
+  <div class="control-group">
+    <%= f.label :time_zone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.time_zone_select :time_zone, get_zone, :default => "Beijing", :class => 'text_field span5' %>
+      <%#= f.time_zone_select :time_zone, [ ActiveSupport::TimeZone['Alaska'], ActiveSupport::TimeZone['Hawaii'] ] %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :start_on %><br />
-    <%= f.date_select :start_on %>
+  <!-- <address>
+    <strong>Twitter, Inc.</strong><br>
+    795 Folsom Ave, Suite 600<br>
+    San Francisco, CA 94107<br>
+    <abbr title="Phone">P:</abbr> (123) 456-7890
+  </address> -->
+  <div class="control-group">
+    <%= f.label :tags, :class => 'control-label' %>
+    <div class="controls" id="add_tag">
+      <%
+        post_tag = @post.new_record? ? [] : @post.tags.map{|e| [e.name, e.id]}
+      %>
+      <div class="will_choose" id="will_choose">
+        <%= select_tag "post[tags][]", options_from_collection_for_select(@tags, 'id', 'name'), :multiple => true, :id => 'will_choose' %>
+      </div>
+      <div class="add_or_delete_tag">
+        <ul>
+          <li>
+            <%= button_to_function ">>", :onclick => "addAllToThisPost()", :id => "add_all" %>
+          </li>
+          <li>
+            <%= button_to_function ">", :onclick => "addOneToThisPost()", :id => "add_one" %>
+          </li>
+          <li>
+            <%= button_to_function "<", :onclick => "deleteOneToThisPost()", :id => "delete_one" %>
+          </li>
+          <li>
+            <%= button_to_function "<<", :onclick => "deleteAllToThisPost()", :id => "delete_all" %>
+          </li>
+        </ul>
+      </div>
+      <div class="choosed">
+        <%= select_tag :tags, post_tag, :multiple => true, :id => 'choosed' %>
+      </div>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                posts_path, :class => 'btn' %>
   </div>
 <% end %>
