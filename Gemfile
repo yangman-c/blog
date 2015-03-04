@@ -13,17 +13,18 @@ gem 'mysql2'
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
-  # gem 'uglifier'
-  # gem "therubyracer"
-  # gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-  # gem "twitter-bootstrap-rails"
-  # gem 'less-rails-bootstrap'
+  gem 'uglifier'
+  gem 'execjs'
+
+  gem "therubyracer"
+  gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+  gem "twitter-bootstrap-rails"
+  gem 'less-rails-bootstrap'
 
 end
 gem 'bootstrap-datepicker-rails'
 gem 'jquery-rails'
 # gem 'ui_datepicker-rails3'
-gem 'execjs'
 gem 'omniauth'
 gem 'omniauth-github'
 
