@@ -1,11 +1,11 @@
 # encoding: utf-8
 class Post < ActiveRecord::Base
-  validates_presence_of :title, :content
-  validates_uniqueness_of :title
+  validates_presence_of :title
+  # validates_uniqueness_of :title
   
-  has_many :comments
+  has_many :comments, :dependent => :destroy
   has_many :taggings
-  has_many :tags, :through => :taggings
+  has_many :tags, :through => :taggings, :dependent => :destroy
 
 	scope :tag_with, lambda{|tag_name| joins(:tags).where("tags.name = ?", tag_name)}
 	scope :latter_than, lambda{|time| joins(:taggings).where("taggings.created_at < ?", time)}

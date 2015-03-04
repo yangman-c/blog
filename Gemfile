@@ -13,15 +13,16 @@ gem 'mysql2'
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
-  gem 'uglifier'
-  gem "therubyracer"
-  gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-  gem "twitter-bootstrap-rails"
-  gem 'less-rails-bootstrap'
-  gem 'bootstrap-datepicker-rails'
-end
+  # gem 'uglifier'
+  # gem "therubyracer"
+  # gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+  # gem "twitter-bootstrap-rails"
+  # gem 'less-rails-bootstrap'
 
+end
+gem 'bootstrap-datepicker-rails'
 gem 'jquery-rails'
+# gem 'ui_datepicker-rails3'
 
 gem 'omniauth'
 gem 'omniauth-github'
@@ -56,4 +57,6 @@ group :development do
 end
 
 # get calendar table
-gem "watu_table_builder", :require => "table_builder"
+# gem "watu_table_builder", :require => "table_builder"
+
+# gem 'thin'

@@ -12,6 +12,10 @@
   <dd><%= @post.start_on %></dd>
   <dt><strong><%= model_class.human_attribute_name(:time_zone) %>:</strong></dt>
   <dd><%= @post.time_zone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tags) %>:</strong></dt>
+  <dd>
+    <%= @post.tags.collect(&:name).join(',') %>
+  </dd>
 </dl>
 
 <div class="form-actions">

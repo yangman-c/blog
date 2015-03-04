@@ -6,18 +6,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+// require twitter/bootstrap
 //= require_tree .
 //= require bootstrap-datepicker
-$(document).ready(function(){
-  $('.datepicker').datepicker();
+
+
+//时间选择器
+$(function(){
+  $('.datepicker').datePicker();
 });
 
-$("#add_all").click(function() {
-	$( ".result" ).load( "ajax/test.html" );
-});
-// 	addAllToThisPost
-// addOneToThisPost
-// deleteOneToThisPost
-// deleteAllToThisPost
 

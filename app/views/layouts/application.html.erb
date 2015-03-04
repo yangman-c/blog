@@ -33,8 +33,11 @@
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+    <%#= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+    <%#= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js" %>
+    <%= javascript_include_tag 'application' %>
 
-    <%= javascript_include_tag "application" %>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
@@ -62,7 +65,7 @@
     <div class="container">
         <div class="row">
           <div class="span9">
-            <%= bootstrap_flash %>
+            <%#= bootstrap_flash %>
             <%= yield %>
           </div>
           <div class="span3">
