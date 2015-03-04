@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	# validates :email, :presence => true, :uniqueness => true
 	has_many :authentications
 	accepts_nested_attributes_for :authentications
-  accessor_attributes :time_zone
+  attr_accessor :time_zone
 
   def add_auth(auth)
     # debugger
