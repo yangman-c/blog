@@ -23,7 +23,7 @@ end
 gem 'bootstrap-datepicker-rails'
 gem 'jquery-rails'
 # gem 'ui_datepicker-rails3'
-
+gem 'execjs'
 gem 'omniauth'
 gem 'omniauth-github'
 
