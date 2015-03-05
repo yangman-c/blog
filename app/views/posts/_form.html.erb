@@ -124,3 +124,10 @@
 
 
 </script>
+But it can't do that, because you're running the installer as may.
+Please give this installer root privileges, by re-running it with rvmsudo:
+
+export ORIG_PATH="$PATH"
+rvmsudo -E /bin/bash
+export PATH="$ORIG_PATH"
+/home/may/.rvm/gems/ruby-1.9.3-p551/wrappers/ruby /home/may/.rvm/gems/ruby-1.9.3-p551/gems/passenger-5.0.1/bin/passenger-install-nginx-module
